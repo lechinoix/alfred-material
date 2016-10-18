@@ -1,3 +1,5 @@
+'use strict'
+
 const express = require('express')
 const debug = require('debug')('app:server')
 const webpack = require('webpack')
