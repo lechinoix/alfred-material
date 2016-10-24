@@ -1,8 +1,22 @@
-.home__title {
-  font-size: 25px;
-}
-.home__alfred-picture {
-  margin-top:10px;
-  max-width:150px;
-  border-radius: 50%;
+.home{
+  &__title {
+    font-size: 25px;
+  }
+  &__alfred-picture {
+    margin-top:10px;
+    max-width:150px;
+    border-radius: 50%;
+  }
+  &__alfred-wrapper {
+
+  }
+  &__card {
+    padding: 20px 30px;
+    margin: auto;
+    width: 35vw;
+    min-width: 280px;
+  }
+  &__action-button {
+    margin-bottom: 10px;
+  }
 }
