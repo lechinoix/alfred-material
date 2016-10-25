@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import { browserHistory, Router } from 'react-router'
+import { hashHistory, Router } from 'react-router'
 import { Provider } from 'react-redux'
 import { blueGrey500, blueGrey700, yellow500 } from 'material-ui/styles/colors'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
@@ -12,6 +12,16 @@ const muiTheme = getMuiTheme({
     accent1Color: yellow500
   }
 })
+
+class RouteComponent extends Router {
+  static childContextTypes = {
+    location: React.PropTypes.object
+  }
+
+  getChildContext () {
+    return { location: this.props.location }
+  }
+}
 
 class AppContainer extends Component {
   static propTypes = {
@@ -34,7 +44,7 @@ class AppContainer extends Component {
             background: 'url(batman.jpg)',
             backgroundSize: '100% 100%'
           }}>
-            <Router history={browserHistory} children={routes} />
+            <RouteComponent history={hashHistory} children={routes} />
           </div>
         </Provider>
       </MuiThemeProvider>

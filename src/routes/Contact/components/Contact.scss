@@ -1,4 +1,4 @@
-.home {
+.contact{
   text-align: center;
   &__title {
     font-size: 25px;
@@ -8,14 +8,14 @@
     max-width:150px;
     border-radius: 50%;
   }
-  &__alfred-wrapper {
-
-  }
   &__card {
     padding: 20px 30px;
     margin: auto;
     width: 35vw;
     min-width: 280px;
+  }
+  &__name {
+    padding-bottom: 20px;
   }
   &__action-button {
     margin-bottom: 10px;
