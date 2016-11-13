@@ -3,30 +3,36 @@ import { Map } from 'immutable'
 // ------------------------------------
 // Constants
 // ------------------------------------
-export const CONTACT_SUBMIT = 'CONTACT_SUBMIT'
+export const VISITOR_SUBMIT = 'VISITOR_SUBMIT'
 
 // ------------------------------------
 // Actions
 // ------------------------------------
-export function setContact ({ id, name }) {
+export function setName (value = '') {
   return {
-    type : CONTACT_SUBMIT,
-    id : id,
-    name : name
+    type    : VISITOR_SUBMIT,
+    name : value
   }
 }
 
+/*  This is a thunk, meaning it is a function that immediately
+    returns a function for lazy evaluation. It is incredibly useful for
+    creating async actions, especially when combined with redux-thunk!
+
+    NOTE: This is solely for demonstration purposes. In a real application,
+    you'd probably want to dispatch an action of VISITOR_DOUBLE and let the
+    reducer take care of this logic.  */
+
 export const actions = {
-  setContact
+  setName
 }
 
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
-  [CONTACT_SUBMIT] : (state, { id, name }) => {
+  [VISITOR_SUBMIT] : (state, { name }) => {
     return state
-    .set('id', id)
     .set('name', name)
   }
 }
@@ -36,10 +42,9 @@ const ACTION_HANDLERS = {
 // ------------------------------------
 
 const initialState = Map({
-  id: '',
   name: ''
 })
-export default function contactReducer (state = initialState, action) {
+export default function visitorReducer (state = initialState, action) {
   const handler = ACTION_HANDLERS[action.type]
 
   return handler ? handler(state, action) : state

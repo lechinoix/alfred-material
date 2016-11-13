@@ -1,14 +1,15 @@
 import { connect } from 'react-redux'
-import { setContactId } from '../modules/contact'
+import { setContact } from '../modules/contact'
 
 import Contact from '../components/Contact'
 
 const mapDispatchToProps = {
-  setContactId
+  setContact
 }
 
 const mapStateToProps = (state) => ({
-  id : state.contact.id
+  id : state.contact.id,
+  name : state.contact.name
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Contact)

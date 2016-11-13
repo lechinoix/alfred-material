@@ -1,20 +1,19 @@
 import React, { Component, PropTypes } from 'react'
 import { Link } from 'react-router'
 import { Avatar, Card } from 'material-ui'
-import { List, ListItem, makeSelectable } from 'material-ui/List'
+import { List, ListItem } from 'material-ui/List'
 import { CardTitle } from 'material-ui/Card'
 import RaisedButton from 'material-ui/RaisedButton'
+import Subheader from 'material-ui/Subheader'
 import _ from 'lodash'
 
 import AlfredPicture from 'static/alfred.jpg'
 import './Contact.scss'
 
-// let SelectableList = makeSelectable(List)
-
 export class Contact extends Component {
   static propTypes = {
     id     : PropTypes.string.isRequired,
-    setContactId : PropTypes.func.isRequired
+    setContact : PropTypes.func.isRequired
   }
 
   render () {
@@ -46,16 +45,21 @@ export class Contact extends Component {
           <CardTitle title='Who is your contact ?' subtitle='If I may ask' />
         </div>
         <div className='contact__list'>
-          <List>
+          <List defaultValue={0}>
+            <Subheader>People in Theodo</Subheader>
             {
               _.map(theodoers, (theodoer, id) => {
                 return (
-                  <ListItem
-                    primaryText={theodoer.first_name}
-                    secondaryText={theodoer.last_name}
-                    leftAvatar={<Avatar src={theodoer.image} />}
-                    onClick={(event) => this.props.setContactId(id)}
-                  />
+                  <Link to={`/result/${id}`}>
+                    <ListItem
+                      primaryText={`${theodoer.first_name} ${theodoer.last_name}`}
+                      leftAvatar={<Avatar src={theodoer.image}
+                      onClick = {() => this.props.setContact({
+                        id,
+                        name: `${theodoer.first_name} ${theodoer.last_name}`
+                      })}
+                    />
+                  </Link>
                 )
               })
             }

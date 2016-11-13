@@ -1,4 +1,4 @@
-.contact{
+.result{
   text-align: center;
   &__title {
     font-size: 25px;
@@ -14,13 +14,7 @@
     width: 35vw;
     min-width: 280px;
   }
-  &__name {
-    padding-bottom: 20px;
-  }
   &__action-button {
     margin-bottom: 10px;
-  }
-  &__list {
-    border: thin solid #eee;
   }
 }
