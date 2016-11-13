@@ -50,11 +50,11 @@ export class Contact extends Component {
             {
               _.map(theodoers, (theodoer, id) => {
                 return (
-                  <Link to={`/result/${id}`}>
+                  <Link to='/result'>
                     <ListItem
                       primaryText={`${theodoer.first_name} ${theodoer.last_name}`}
-                      leftAvatar={<Avatar src={theodoer.image}
-                      onClick = {() => this.props.setContact({
+                      leftAvatar={<Avatar src={theodoer.image} />}
+                      onClick={() => this.props.setContact({
                         id,
                         name: `${theodoer.first_name} ${theodoer.last_name}`
                       })}

@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react'
+import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import { Avatar, Card } from 'material-ui'
 import { CardTitle } from 'material-ui/Card'
-import TextField from 'material-ui/TextField'
 import RaisedButton from 'material-ui/RaisedButton'
 
 import AlfredPicture from 'static/alfred.jpg'
@@ -10,7 +10,8 @@ import './Result.scss'
 
 export class Result extends Component {
   static propTypes = {
-    userId     : PropTypes.number.isRequired
+    id     : PropTypes.number.isRequired,
+    name     : PropTypes.string.isRequired
   }
 
   render () {
@@ -32,4 +33,11 @@ export class Result extends Component {
   }
 }
 
-export default Result
+const mapDispatchToProps = {}
+
+const mapStateToProps = (state) => ({
+  id : state.contact.get('id'),
+  name : state.contact.get('name')
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Result)
