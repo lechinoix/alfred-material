@@ -5,6 +5,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import Header from 'components/Header'
 export const CoreLayout = ({ children }) => (
   <div className='text-center'>
+    <div className='core-layout__background' />
     <Header className='core-layout__header' />
     <ReactCSSTransitionGroup
       transitionName='example'

@@ -39,13 +39,7 @@ class AppContainer extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <Provider store={store}>
-          <div style={{
-            background: 'url(batman.jpg)',
-            backgroundSize: '100% 100%',
-            backgroundAttachment: 'fixed',
-          }}>
-            <RouteComponent history={hashHistory} children={routes} />
-          </div>
+          <RouteComponent history={hashHistory} children={routes} />
         </Provider>
       </MuiThemeProvider>
     )
