@@ -23,4 +23,7 @@
   &__list {
     border: thin solid #eee;
   }
+  a:-webkit-any-link {
+    text-decoration: none;
+  }
 }
