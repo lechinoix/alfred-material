@@ -13,16 +13,6 @@ const muiTheme = getMuiTheme({
   }
 })
 
-class RouteComponent extends Router {
-  static childContextTypes = {
-    location: React.PropTypes.object
-  }
-
-  getChildContext () {
-    return { location: this.props.location }
-  }
-}
-
 class AppContainer extends Component {
   static propTypes = {
     routes : PropTypes.object.isRequired,
@@ -39,7 +29,7 @@ class AppContainer extends Component {
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
         <Provider store={store}>
-          <RouteComponent history={hashHistory} children={routes} />
+          <Router history={hashHistory} children={routes} />
         </Provider>
       </MuiThemeProvider>
     )
