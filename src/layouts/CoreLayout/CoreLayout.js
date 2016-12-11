@@ -2,20 +2,21 @@ import React from 'react'
 import './CoreLayout.scss'
 import '../../styles/core.scss'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
-import Header from 'components/Header'
+import { Header, Sidebar } from 'containers/Menus'
 export const CoreLayout = ({ children }) => (
   <div className='text-center'>
     <div className='core-layout__background' />
     <Header className='core-layout__header' />
-    <ReactCSSTransitionGroup
-      transitionName='example'
-      transitionEnterTimeout={500}
-      transitionLeaveTimeout={500}
-    >
-      <div className='container core-layout__viewport'>
+    <Sidebar />
+    <div className='container core-layout__viewport'>
+      <ReactCSSTransitionGroup
+        transitionName='example'
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={500}
+      >
         {children}
-      </div>
-    </ReactCSSTransitionGroup>
+      </ReactCSSTransitionGroup>
+    </div>
   </div>
 )
 

@@ -11,6 +11,10 @@ class Header extends Component {
     location: React.PropTypes.object.isRequired
   }
 
+  static propTypes = {
+    toggleMenu: React.PropTypes.func.isRequired
+  }
+
   render () {
     let location = this.context.location
     return (
@@ -22,6 +26,7 @@ class Header extends Component {
             ? <IconButton><Menu /></IconButton>
             : <IconButton onClick={hashHistory.goBack}><ArrowBack /></IconButton>
           }
+          onLeftIconButtonTouchTap={() => this.props.toggleMenu()}
         />
       </div>
     )
