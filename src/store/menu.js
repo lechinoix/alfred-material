@@ -2,6 +2,7 @@
 // Constants
 // ------------------------------------
 export const TOGGLE_MENU = 'TOGGLE_MENU'
+export const CLOSE_MENU = 'CLOSE_MENU'
 
 // ------------------------------------
 // Actions
@@ -12,12 +13,21 @@ export const toggleMenu = () => {
   }
 }
 
+export const closeMenu = () => {
+  return {
+    type: CLOSE_MENU
+  }
+}
+
 // ------------------------------------
 // Action Handlers
 // ------------------------------------
 const ACTION_HANDLERS = {
   [TOGGLE_MENU] : (state) => {
     return { opened: !state.opened }
+  },
+  [CLOSE_MENU] : (state) => {
+    return { opened: false }
   }
 }
 

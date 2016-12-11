@@ -1,11 +1,13 @@
 import React, { Component, PropTypes } from 'react'
 import Drawer from 'material-ui/Drawer'
+import { Link } from 'react-router'
 import MenuItem from 'material-ui/MenuItem'
 import './Sidebar.scss'
 
 class Sidebar extends Component {
 
   static propTypes = {
+    closeMenu  :   PropTypes.func.isRequired,
     opened      :  PropTypes.bool.isRequired,
     toggleMenu  :   PropTypes.func.isRequired
   }
@@ -19,8 +21,8 @@ class Sidebar extends Component {
           open={_props.opened}
           onRequestChange={(open) => _props.toggleMenu({ open })}
         >
-          <MenuItem>Menu Item 1</MenuItem>
-          <MenuItem>Menu Item 2</MenuItem>
+          <Link to='/'><MenuItem onTouchTap={this.props.closeMenu}>Home</MenuItem></Link>
+          <MenuItem>About</MenuItem>
         </Drawer>
       </div>
     )
